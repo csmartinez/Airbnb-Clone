@@ -1,0 +1,13 @@
+<h2>Complete Your Reservation</h2>
+
+<%= form_for @reservation do |f| %>
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+  <%= f.label :date %>
+  <%= f.text_field :date %>
+  <input type="hidden" value="<%= current_user.id() %>">
+  <input type="hidden" value="<%= @room_id %>">
+  <button class="button btn-xs btn-primary">Reserve room</button>
+<% end %>
+
+<p><%= @room_id %></p>
