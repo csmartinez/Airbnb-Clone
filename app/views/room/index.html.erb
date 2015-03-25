@@ -1,1 +1,8 @@
 <h1>heirbnb</h1>
+
+<% if @rooms %>
+  <% @rooms.all.each do |room| %>
+    <h3><%= room.location %></h3>
+    <p><%= room.amenities %><br><%= room.size %></p>
+    <% end %>
+  <% end %>
