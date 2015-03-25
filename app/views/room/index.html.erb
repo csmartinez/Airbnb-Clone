@@ -17,7 +17,7 @@
       <h3>Location: <%= room.location %></h3>
       <ul>
       <h5>Amenities: <%= room.amenities %><br>Size: <%= room.size %></h5>
-      <button class="button btn-xs btn-primary"><%= link_to "Stay here", new_rooms_reservations_path(room.id) %></button>
+      <button class="button btn-xs btn-primary"><%= link_to "Stay here", new_rooms_reservations_path(room) %></button>
       </ul>
       <% end %>
     <% end %>
