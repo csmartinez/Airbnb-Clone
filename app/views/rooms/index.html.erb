@@ -44,6 +44,7 @@
         <%= form_tag(new_reservations_path) do |f| %>
         <input type="hidden" value="<%= room.id() %>" name="room_id">
         <button class="button btn-xs btn-primary">Add room</button>
+        <%= link_to "Stay here", new_reservations_path %>
         <% end %>
         </ul>
         <% end %>
