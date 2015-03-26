@@ -1,0 +1,59 @@
+<div class="main">
+  <h1>Errorbnb</h1>
+
+  <% if current_user %>
+    <% if current_user.rooms.any? %>
+    <h5><%= current_user.email %>'s rooms</h5>
+        <ul>
+          <p>Location: </p>
+            <% current_user.rooms.each do |room| %>
+              <li>
+                <%= room.location %>
+              </li>
+            <% end %>
+          <% else %>
+          <h5>You have no rooms</h5>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if current_user && current_user.reservations.any? %>
+    <h4>Your reservations: </h4>
+    <% current_user.reservations.each do |reservation| %>
+      <h5><br>
+        Price: $<%= reservation.price %><br>
+      <%= reservation.date %></h5>
+      <% end %>
+    <% else %>
+    <h4>You don't have any reservations</h4>
+    <% end %>
+
+  <div class="room">
+    <% if @rooms %>
+      <% @rooms.all.each do |room| %>
+        <h3>Location: <%= room.location %></h3>
+        <ul>
+        <h5>Amenities: <%= room.amenities %><br>Size: <%= room.size %></h5>
+        <h5></h5>
+        <button class="button btn-xs btn-primary"><%= link_to "Stay here", new_rooms_reservations_path(room) %></button>
+        </ul>
+        <% end %>
+      <% end %>
+  </div>`
+</div>
+
+<div class="column">
+  <% if current_user %>
+    <h3>Add a room</h4>
+    <%= form_for Room.new do |f| %>
+      <%= f.label :size %>
+      <%= f.text_field :size %><br>
+      <%= f.label :amenities %>
+      <%= f.text_field :amenities %><br>
+      <%= f.label :location %>
+      <%= f.text_field :location %><br>
+      <input type="hidden" value="<%= current_user.id() %>" name="user_id">
+      <button class="button btn-xs btn-primary">Add room</button>
+    <% end %>
+  <% end %>
+</div>

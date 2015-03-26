@@ -2,3 +2,13 @@
   color: white;
   font-family: arial;
 }
+
+.column {
+  float: right;
+  width: 38%;
+  margin-top: 80px
+}
+
+.main {
+  float: left;
+}
